@@ -1,16 +1,6 @@
 # flutter_study_app
 
-A new Flutter project.
+A new Flutter project to start learning.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Demo Screen 
+![IMG_3A9EDCDD78C0-1](https://user-images.githubusercontent.com/13627178/193355274-e2ec0184-9531-4950-8d92-85aea68af8f0.jpeg)
