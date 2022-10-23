@@ -13,15 +13,14 @@ class _MySplashScreenState extends State<MySplashScreen> {
   @override
   Widget build(BuildContext context) {
     return EasySplashScreen(
-      logo: Image.network(
-          'https://cdn0.iconfinder.com/data/icons/healthcare-medical-14/128/_Care_hospital_medicine_recovery_treatment_hand_heart-64.png'),
+      logo: Image.asset('assets/images/splash_icon.png'),
       durationInSeconds: 3,
       logoWidth: 100,
       navigator: const Login(),
-      title: const Text("This is My First Splash Screen"),
+      title: const Text('This is My First Splash Screen'),
       backgroundColor: Colors.white70,
       loaderColor: Colors.red.shade400,
-      loadingText: const Text("It will take some seconds"),
+      loadingText: const Text('It will take some seconds'),
     );
   }
 }

@@ -3,6 +3,9 @@ import 'package:flutter_study_app/home_tasks/home_task_20.10.2022/screens/welcom
 
 import '../user.dart';
 
+const _emailField = 'Email';
+const _passwordField = 'Password';
+
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
@@ -25,19 +28,20 @@ class _LoginState extends State<Login> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.network(
-                  'https://cdn2.iconfinder.com/data/icons/users-6/100/USER2-64.png'),
+              // Image.network(
+                  // 'https://cdn2.iconfinder.com/data/icons/users-6/100/USER2-64.png'),
+              Image.asset('assets/images/login_icon.png'),
               const SizedBox(height: 20),
-              const Text("Welcome to Login Screen",
+              const Text('Welcome to Login Screen',
                   style: TextStyle(fontSize: 16)),
               Container(
                 padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
-                child: _formWidget(nameController, "Email", User.name),
+                child: _formWidget(nameController, _emailField, User.name),
               ),
               Container(
                 padding: const EdgeInsets.fromLTRB(40, 0, 40, 20),
                 child:
-                    _formWidget(passwordController, "Password", User.password),
+                    _formWidget(passwordController, _passwordField, User.password),
               ),
               Container(
                   padding: const EdgeInsets.fromLTRB(25, 0, 40, 20),
@@ -54,7 +58,7 @@ class _LoginState extends State<Login> {
                           });
                         },
                       ),
-                      const Text("Запамʼятати", style: TextStyle(fontSize: 16)),
+                      const Text('Запамʼятати', style: TextStyle(fontSize: 16)),
                     ],
                   )),
               Container(
