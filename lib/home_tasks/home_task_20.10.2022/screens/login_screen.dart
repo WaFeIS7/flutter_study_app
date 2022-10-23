@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study_app/home_tasks/home_task_20.10.2022/screens/constants.dart';
 import 'package:flutter_study_app/home_tasks/home_task_20.10.2022/screens/welcome_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../user.dart';
 
@@ -14,34 +16,31 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  var nameController = TextEditingController();
-  var passwordController = TextEditingController();
-  var isChecked = false;
-  final formGlobalKey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
+  final _passwordController = TextEditingController();
+  var _isChecked = false;
+  final _formGlobalKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
         body: Form(
-          key: formGlobalKey,
+          key: _formGlobalKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Image.network(
-                  // 'https://cdn2.iconfinder.com/data/icons/users-6/100/USER2-64.png'),
               Image.asset('assets/images/login_icon.png'),
               const SizedBox(height: 20),
-              const Text('Давай, заходь!',
-                  style: TextStyle(fontSize: 16)),
+              const Text('Давай, заходь!', style: TextStyle(fontSize: 16)),
               Container(
                 padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
-                child: _formWidget(nameController, _emailField, User.name),
+                child: _formWidget(_nameController, _emailField, User.name),
               ),
               Container(
                 padding: const EdgeInsets.fromLTRB(40, 0, 40, 20),
-                child:
-                    _formWidget(passwordController, _passwordField, User.password),
+                child: _formWidget(
+                    _passwordController, _passwordField, User.password),
               ),
               Container(
                   padding: const EdgeInsets.fromLTRB(25, 0, 40, 20),
@@ -49,13 +48,16 @@ class _LoginState extends State<Login> {
                     children: [
                       Checkbox(
                         activeColor: Colors.greenAccent,
-                        value: isChecked,
+                        value: _isChecked,
                         fillColor: MaterialStateProperty.resolveWith(
                             (states) => Colors.red.shade400),
                         onChanged: (value) {
                           setState(() {
-                            isChecked = value!;
+                            _isChecked = value!;
                           });
+                          // if (_isChecked) {
+                          //   _setLocalStorage(_isChecked);
+                          // }
                         },
                       ),
                       const Text('Запамʼятати', style: TextStyle(fontSize: 16)),
@@ -67,8 +69,11 @@ class _LoginState extends State<Login> {
                 child: ElevatedButton(
                   child: const Text('Далі'),
                   onPressed: () {
-                    if (formGlobalKey.currentState!.validate()) {
-                      formGlobalKey.currentState!.save();
+                    if (_formGlobalKey.currentState!.validate()) {
+                       if (_isChecked) {
+                        _setLocalStorage(_isChecked);
+                      }
+                      _formGlobalKey.currentState!.save();
                       Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -81,6 +86,12 @@ class _LoginState extends State<Login> {
           ),
         ));
   }
+}
+
+void _setLocalStorage(bool remember) {
+  SharedPreferences.getInstance().then((prefs) {
+    prefs.setBool(Constants.rememberMe, remember);
+  });
 }
 
 Widget _formWidget(TextEditingController textEditingController,
