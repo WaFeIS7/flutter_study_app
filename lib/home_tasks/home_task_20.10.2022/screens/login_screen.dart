@@ -55,9 +55,6 @@ class _LoginState extends State<Login> {
                           setState(() {
                             _isChecked = value!;
                           });
-                          // if (_isChecked) {
-                          //   _setLocalStorage(_isChecked);
-                          // }
                         },
                       ),
                       const Text('Запамʼятати', style: TextStyle(fontSize: 16)),
