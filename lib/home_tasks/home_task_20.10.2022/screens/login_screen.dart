@@ -32,7 +32,7 @@ class _LoginState extends State<Login> {
                   // 'https://cdn2.iconfinder.com/data/icons/users-6/100/USER2-64.png'),
               Image.asset('assets/images/login_icon.png'),
               const SizedBox(height: 20),
-              const Text('Welcome to Login Screen',
+              const Text('Давай, заходь!',
                   style: TextStyle(fontSize: 16)),
               Container(
                 padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
@@ -65,7 +65,7 @@ class _LoginState extends State<Login> {
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
-                  child: const Text('Login'),
+                  child: const Text('Далі'),
                   onPressed: () {
                     if (formGlobalKey.currentState!.validate()) {
                       formGlobalKey.currentState!.save();

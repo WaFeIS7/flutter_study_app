@@ -6,8 +6,12 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Welcome Screen'),
+        title: const Text('Доброго вечора, Ми з України!!', style: 
+        TextStyle(color: Colors.yellow),),
       ),
+    body: const Center(
+      child: Text('Вітаю тебе друже!',  style: TextStyle(fontSize: 20)),
+    ),
     );
   }
 }
